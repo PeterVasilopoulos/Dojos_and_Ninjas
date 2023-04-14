@@ -7,4 +7,17 @@ class Dojo:
         self.id = data['id']
         self.name = ['name']
 
-    
+    @classmethod 
+    def get_all_dojos(cls):
+        query = "SELECT * FROM dojos;"
+
+        results = connectToMySQL(DATABASE).query_db(query)
+
+        dojos = []
+
+        if results:
+            for dojo in results:
+                new_dojo = cls(dojo)
+                dojos.append(new_dojo)
+
+        return dojos
