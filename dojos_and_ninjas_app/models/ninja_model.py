@@ -10,4 +10,12 @@ class Ninja:
         self.age = data['age']
         self.dojo_id = data['dojo_id']
     
-    
+    # Createing a new ninja
+    @classmethod
+    def create(cls, data):
+        query = """
+            INSERT INTO ninjas(first_name, last_name, age, dojo_id) 
+            VALUES(%(first_name)s, %(last_name)s, %(age)s, %(dojo_id)s)
+        """
+
+        connectToMySQL(DATABASE).query_db(query, data)

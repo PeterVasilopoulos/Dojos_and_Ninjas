@@ -3,9 +3,12 @@
     margin: 0;
 }
 
+/* Dojo */
+
 #main {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     gap: 50px;
     margin: 30px;
 }
@@ -16,10 +19,33 @@
     width: 400px;
 }
 
+.add-ninja {
+    display: block;
+    margin-top: 20px;
+}
+
 #right-content ul {
     list-style: none;
 }
 
+li {
+    margin-bottom: 5px;
+}
+
 h2 {
+    margin-bottom: 20px;
+}
+
+/* New Ninja */
+
+#new-ninja {
+    margin: 30px;
+}
+
+#new-ninja h1 {
+    margin-bottom: 20px;
+}
+
+#ninja-form > * {
     margin-bottom: 20px;
 }

@@ -20,4 +20,10 @@ def dojo():
 @app.route('/dojo/<int:id>')
 def dojo_id(id):
 
-    return render_template('/dojo_details')
+    return render_template('/dojo_details.html')
+
+# Creating a new dojo
+@app.route('/create', methods=['POST'])
+def create():
+    Dojo.create(request.form)
+    return redirect('/dojo')
