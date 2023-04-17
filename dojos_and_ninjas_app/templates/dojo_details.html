@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    
-    <h1>DOJO_NAME Ninjas</h1>
+
+    {% for d in dojo %}
+        <h1>{{d.name}} Ninjas</h1>
+    {% endfor %}
 
     <table>
         <thead>
@@ -18,14 +20,23 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Age</th>
+                <th>Dojo Name</th>
             </tr>
         </thead>
 
-        {% for %}
-
+        {% for ninja in people %}
+            <tr>
+                <td>{{ninja.first_name}}</td>
+                <td>{{ninja.last_name}}</td>
+                <td>{{ninja.age}}</td>
+                <td>{{ninja.dojo.name}}</td>
+            </tr>
         {% endfor %}
 
     </table>
+
+    <!-- Home Button -->
+    <a href="/dojo">Home</a>
 
 </body>
 </html>

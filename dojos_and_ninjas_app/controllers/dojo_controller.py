@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect
 
 from dojos_and_ninjas_app.models.dojo_model import Dojo
+from dojos_and_ninjas_app.models.ninja_model import Ninja
 
 from dojos_and_ninjas_app import app
 
@@ -19,8 +20,9 @@ def dojo():
 # View a single dojo
 @app.route('/dojo/<int:id>')
 def dojo_id(id):
-
-    return render_template('/dojo_details.html')
+    dojo = Dojo.get_dojo_info(id)
+    people = Dojo.get_all_ninjas_from_dojo(id)
+    return render_template('/dojo_details.html', people = people, dojo = dojo)
 
 # Creating a new dojo
 @app.route('/create', methods=['POST'])
